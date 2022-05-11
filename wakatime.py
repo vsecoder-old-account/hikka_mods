@@ -68,7 +68,7 @@ class WakaTimeMod(loader.Module):
     async def client_ready(self, client, db):
         self._db = db
         self._client = client
-        self._endpoint = "https://wakatime.com/api/v1/users/{}stats/last_7_days"
+        self._endpoint = "https://wakatime.com/api/v1/users/{}/stats/last_7_days"
 
         self._task = asyncio.ensure_future(self._parse())
 
