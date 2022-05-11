@@ -18,7 +18,7 @@
 
 import asyncio
 import logging
-import re
+import json
 
 import aiohttp
 from telethon.errors.rpcerrorlist import FloodWaitError, MessageNotModifiedError
@@ -87,7 +87,7 @@ class WakaTimeMod(loader.Module):
                 ) as resp:
                     r = await resp.text()
 
-            results = [r.json()]
+            results = json.loads(r.json())
 
             for widget in self.get("widgets", []):
                 try:
